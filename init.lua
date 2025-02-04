@@ -1,12 +1,12 @@
 if vim.g.neovide then
-	-- Put anything you want to happen only in Neovide here
-	-- bootstrap lazy.nvim, LazyVim and your plugins
-	require("config.lazy")
+  -- Put anything you want to happen only in Neovide here
+  -- bootstrap lazy.nvim, LazyVim and your plugins
+  require("config.lazy")
 else 
-	vim.cmd("set expandtab")
-	vim.cmd("set tabstop=2")
-	vim.cmd("set softtabstop=2")
-	vim.cmd("set shiftwidth=2")
+  vim.cmd("set expandtab")
+  vim.cmd("set tabstop=2")
+  vim.cmd("set softtabstop=2")
+  vim.cmd("set shiftwidth=2")
   vim.g.mapleader= " "
   -- Lazy package manager
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,9 +30,8 @@ else
 
   require("lazy").setup(plugins, opts) 
   
-   --require catppuccin
+  --require catppuccin
   require("catppuccin").setup()
   --set the colorscheme
-  vim.cmd.colorscheme "catppuccin" 
-
+  vim.cmd.colorscheme "catppuccin"
 end
