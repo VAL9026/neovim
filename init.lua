@@ -25,7 +25,14 @@ else
   local opts = {}
   local plugins = {
     -- get theme
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+    { 
+      "catppuccin/nvim", name = "catppuccin", priority = 1000 
+    },
+    {
+      "nvim-telescope/telescope.nvim",
+      tag = "0.1.6",
+      dependencies = { "nvim-lua/plenary.nvim" }
+    }
   }
 
   require("lazy").setup(plugins, opts) 
@@ -34,4 +41,8 @@ else
   require("catppuccin").setup()
   --set the colorscheme
   vim.cmd.colorscheme "catppuccin"
+
+  local builtin = require("telescope.builtin")
+  vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+  vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 end
