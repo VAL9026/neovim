@@ -24,9 +24,12 @@ else
 
   local opts = {}
   local plugins = {
-    -- get theme
     { 
-      "catppuccin/nvim", name = "catppuccin", priority = 1000 
+      --"catppuccin/nvim", name = "catppuccin", priority = 1000 
+      "dgox16/oldworld.nvim",
+      name = "oldworld",
+      lazy = false,
+      priority = 1000,
     },
     {
       "nvim-telescope/telescope.nvim",
@@ -42,8 +45,8 @@ else
   require("lazy").setup(plugins, opts) 
   
   --catppuccin theme
-  require("catppuccin").setup()
-  vim.cmd.colorscheme "catppuccin"
+  require("oldworld").setup()
+  vim.cmd.colorscheme("oldworld")
 
   --telescope
   local builtin = require("telescope.builtin")
